@@ -1,0 +1,7 @@
+{
+  "name": "appPatitas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
