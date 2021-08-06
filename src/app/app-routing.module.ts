@@ -18,11 +18,15 @@ const routes: Routes = [
   {
     path: 'crear-cuenta',
     loadChildren: () => import('./pages/crear-cuenta/crear-cuenta.module').then( m => m.CrearCuentaPageModule)
+  },  {
+    path: 'mascotas',
+    loadChildren: () => import('./pages/mascotas/mascotas.module').then( m => m.MascotasPageModule)
   },
   {
-    path: 'calendario',
-    loadChildren: () => import('./pages/calendario/calendario.module').then( m => m.CalendarioPageModule)
+    path: 'crear-mascotas',
+    loadChildren: () => import('./pages/crear-mascotas/crear-mascotas.module').then( m => m.CrearMascotasPageModule)
   }
+
 ];
 
 @NgModule({
