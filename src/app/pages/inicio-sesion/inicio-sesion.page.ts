@@ -63,7 +63,7 @@ export class InicioSesionPage implements OnInit {
 					tipo: usuario.tipo,
 					uid: res.user.uid
 				})
-				//this.router.navigate(['/tabs'])
+				this.router.navigate(['/mascotas'])
 			}
 		
 		} catch(err) {

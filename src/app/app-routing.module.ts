@@ -28,7 +28,11 @@ const routes: Routes = [
   {
     path: 'crear-mascotas',
     loadChildren: () => import('./pages/crear-mascotas/crear-mascotas.module').then( m => m.CrearMascotasPageModule)
+  },  {
+    path: 'datos-mascota',
+    loadChildren: () => import('./pages/datos-mascota/datos-mascota.module').then( m => m.DatosMascotaPageModule)
   }
+
 
 ];
 

@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="float: left;">
+      <ion-title>datos-mascota</ion-title>
+    </div>
+    <div style="float: right;">
+      <ion-fab-button (click)="regresar()" >
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-fab-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div id="cabecera">
+    
+    <div id="fotoPerfil">
+        <ion-img style="width: 100%; margin: 0;padding: 0;"
+        [src]="mascota.perfil?.url">
+        </ion-img>
+    </div>
+
+    <div id="infoBasica">
+
+      <ion-item>
+        <ion-label>Nombre: {{mascota.nombre}} </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tipo: {{mascota.tipo}} </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Sexo: {{mascota.sexo}}</ion-label>
+      </ion-item>
+      
+    </div>
+  </div>
+
+  <div>
+    <ion-tab-bar slot="bottom">
+      
+      <ion-tab-button tab="about" (click)="mostrarDetalles()">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        <ion-label>Detalles</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="Profecionales" (click)="mostrarProfecionales()">
+        <ion-icon name="people-outline"></ion-icon>
+        <ion-label>Profecionales</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="Vacunacion" (click)="mostrarVacunacion()">
+        <ion-icon name="medkit-outline"></ion-icon>
+        <ion-label>Vacunacion</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="Medicamentos" (click)="mostrarMedicamentos()">
+        <ion-icon name="pulse"></ion-icon>
+        <ion-label>Medicamentos</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </div>
+
+  <div id="detalles">
+
+    <!-- HTML para el detalle -->
+    <div *ngIf="centDetalles">
+      <h1>Informacion basica</h1>
+    
+      <ion-item>
+        <ion-label>Raza: {{mascota.raza}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Edad: {{mascota.edad}} </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Esterilizado: {{mascota.esteril}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Color: {{mascota.color}} </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Notas: </ion-label>
+        <ion-textarea [(ngModel)]="mascota.notas"></ion-textarea>
+      </ion-item>
+    </div>
+
+    <!-- HTML para el Profecionales -->
+    <div *ngIf="centProfecionales">
+      <h1>Profecionales</h1>
+      <div style="float: right;">
+        <ion-fab-button (click)="regresar()" >
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </div>
+    </div>
+
+    <!-- HTML para el Vacunacion -->
+    <div *ngIf="centVacunacion">
+      <h1>Vacunacion</h1>
+      <div style="float: right;">
+        <ion-fab-button (click)="regresar()" >
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </div>
+    </div>
+
+    <!-- HTML para el Medicamentos -->
+    <div *ngIf="centMedicamentos">
+      <h1>Medicamentos</h1>
+      <div style="float: right;">
+        <ion-fab-button (click)="regresar()" >
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>
