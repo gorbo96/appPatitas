@@ -5,13 +5,15 @@
 </ion-header>
 
 <ion-content>
+
   <ion-fab vertical="top" horizontal="end" slot="fixed" style="margin-right: 12%;">
-    <ion-fab-button >
+    <ion-fab-button (click)="guardar()">
       <ion-icon name="checkmark-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
   <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button >
+    <ion-fab-button (click)="regresar()" >
       <ion-icon name="close-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
