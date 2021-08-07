@@ -8,6 +8,8 @@ import { DatosMascotaPageRoutingModule } from './datos-mascota-routing.module';
 
 import { DatosMascotaPage } from './datos-mascota.page';
 
+import { TakePhotoComponent } from '../../components/take-photo/take-photo.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,6 @@ import { DatosMascotaPage } from './datos-mascota.page';
     IonicModule,
     DatosMascotaPageRoutingModule
   ],
-  declarations: [DatosMascotaPage]
+  declarations: [DatosMascotaPage, TakePhotoComponent]
 })
 export class DatosMascotaPageModule {}

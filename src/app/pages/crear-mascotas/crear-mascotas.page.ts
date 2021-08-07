@@ -25,6 +25,7 @@ export class CrearMascotasPage implements OnInit {
   guardar(){
     this.mascota.uidUser=this.user.getUID();
     this.mascotaService.save(this.mascota);
+    this.router.navigate(["/mascotas"]);
   }
 
   regresar(){

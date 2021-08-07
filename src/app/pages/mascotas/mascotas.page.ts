@@ -15,6 +15,7 @@ export class MascotasPage implements OnInit {
               public user: UserService) { }
 
   mascotas:any;
+  mascota:any;
 
   ngOnInit() {
     this.mascotas = this.mascotasService.getMascotas(this.user.getUID());
@@ -22,6 +23,15 @@ export class MascotasPage implements OnInit {
 
   crear(){
     this.router.navigate(["/crear-mascotas"]);
+  }
+
+  informacion(mascota:any){
+    let params: NavigationExtras={
+      queryParams:{
+        mascota:mascota
+      }
+    }
+    this.router.navigate(["/datos-mascota"], params);
   }
 
   

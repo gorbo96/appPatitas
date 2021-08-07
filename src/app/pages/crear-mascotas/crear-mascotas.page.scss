@@ -1,25 +1,29 @@
 #fotoPerfil{
+    float: left;
     margin-top: 3%;
     margin-left: 4%;
-    width: 60%;
-    height: 40%;
+    width: 45%;
+    height: 30%;
 }
 
 #infoBasica{
-    float: right;
+    float: left;
+    margin-top: 20%;
     margin-right: 5%;
-    width:50%
+    width:45%;
+    height: 30%;
 }
 
 #cabecera{
     width: 100%;
     height: 30%;
+    margin-bottom: 30%;
 }
 
 #detalles{
+    float: left;
     margin-left: 5%;
     margin-right: 5%;
     width: 90%;
     height: 30%;
-    margin-top: 50%;
 }
