@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CrearMascotasPageRoutingModule } from './crear-mascotas-routing.module';
 
 import { CrearMascotasPage } from './crear-mascotas.page';
+import { TakePhotoComponent } from '../../components/take-photo/take-photo.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { CrearMascotasPage } from './crear-mascotas.page';
     IonicModule,
     CrearMascotasPageRoutingModule
   ],
-  declarations: [CrearMascotasPage]
+  declarations: [CrearMascotasPage, TakePhotoComponent]
 })
 export class CrearMascotasPageModule {}
