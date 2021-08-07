@@ -6,6 +6,7 @@ export const environment = {
     projectId: "proyectopatitas-63db9",
     storageBucket: "proyectopatitas-63db9.appspot.com",
     messagingSenderId: "864649497531",
-    appId: "1:864649497531:web:a1412e9b528c56c4a6529e"
+    appId: "1:864649497531:web:5f9d6415fc33a2cca6529e"
+
   }
 };
