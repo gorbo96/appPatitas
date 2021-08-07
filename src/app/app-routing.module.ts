@@ -7,6 +7,7 @@ const routes: Routes = [
 
     redirectTo: 'inicio-sesion',
 
+
     pathMatch: 'full'
   },
   {
@@ -28,9 +29,21 @@ const routes: Routes = [
   {
     path: 'crear-mascotas',
     loadChildren: () => import('./pages/crear-mascotas/crear-mascotas.module').then( m => m.CrearMascotasPageModule)
-  },  {
+
+  },
+  {
+    path: 'calendario',
+    loadChildren: () => import('./pages/calendario/calendario.module').then( m => m.CalendarioPageModule)
+  },
+  {
+    path: 'calendario-vacuna',
+    loadChildren: () => import('./pages/calendario-vacuna/calendario-vacuna.module').then( m => m.CalendarioVacunaPageModule)
+
+  },
+  {
     path: 'datos-mascota',
     loadChildren: () => import('./pages/datos-mascota/datos-mascota.module').then( m => m.DatosMascotaPageModule)
+
   }
 
 
