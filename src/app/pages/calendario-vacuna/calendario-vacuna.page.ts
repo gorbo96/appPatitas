@@ -105,7 +105,7 @@ export class CalendarioVacunaPage implements OnInit {
     const alert = await this.alertCtrl.create({
       header: event.title,
       subHeader: event.desc,
-      message: 'Fecha Vacuna: ' + start + '<br><br>Proxima vacuna: ' +end
+      message: 'Fecha Vacuna: ' + start + '<br><br>Proxima vacuna: ' +end,
       buttons: ['OK']
     });
     alert.present();
