@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'calendario',
     loadChildren: () => import('./pages/calendario/calendario.module').then( m => m.CalendarioPageModule)
+  },  {
+    path: 'calendario-vacuna',
+    loadChildren: () => import('./pages/calendario-vacuna/calendario-vacuna.module').then( m => m.CalendarioVacunaPageModule)
   }
+
 
 ];
 

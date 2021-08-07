@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>
-      Calendario Medicamentos
+      Calendario Vacunacion
     </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="today()">Hoy</ion-button>
@@ -22,18 +22,14 @@
         <ion-input type="text" placeholder="Nombre Evento" [(ngModel)]="event.title"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="text" placeholder="Descripcion" [(ngModel)]="event.desc"></ion-input>
-      </ion-item>
+        <ion-input type="text" placeholder="Utilidad" [(ngModel)]="event.desc"></ion-input>
+      </ion-item>      
       <ion-item>
-        <ion-label>Frec Med (Horas)</ion-label>
-        <ion-input type="number" [(ngModel)]="event.frecuency"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Inicio</ion-label>
+        <ion-label>Fecha de Vacuna</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.startTime" [min]="minDate"></ion-datetime>
       </ion-item>
       <ion-item>
-        <ion-label>Final</ion-label>
+        <ion-label>Proxima Vacuna</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.endTime" [min]="minDate"></ion-datetime>
       </ion-item>
       <ion-item>
