@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path: 'crear-cuenta',
     loadChildren: () => import('./pages/crear-cuenta/crear-cuenta.module').then( m => m.CrearCuentaPageModule)
-  },  {
+  },
+  {
     path: 'mascotas',
     loadChildren: () => import('./pages/mascotas/mascotas.module').then( m => m.MascotasPageModule)
   },

@@ -3,10 +3,10 @@ export class Mascota{
     uidUser:string;
     nombre:string;
     tipo:string;
-    sexo:boolean;
+    sexo:string;
     raza:string;
     edad:string;
-    esteril:boolean;
+    esteril:string;
     color:string;
     notas:string;
     perfil:any;
