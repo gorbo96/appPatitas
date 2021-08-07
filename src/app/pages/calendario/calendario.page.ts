@@ -15,7 +15,8 @@ export class CalendarioPage implements OnInit {
     desc: '',
     startTime: '',
     endTime: '',
-    allDay: false
+    allDay: false,
+    frecuency:0,
   };
  
   minDate = new Date().toISOString();
@@ -42,18 +43,20 @@ export class CalendarioPage implements OnInit {
       desc: '',
       startTime: new Date().toISOString(),
       endTime: new Date().toISOString(),
-      allDay: false
+      allDay: false,
+      frecuency:0,
     };
   }
  
-  // Create the right event format and reload source
+  
   addEvent() {
     let eventCopy = {
       title: this.event.title,
       startTime:  new Date(this.event.startTime),
       endTime: new Date(this.event.endTime),
       allDay: this.event.allDay,
-      desc: this.event.desc
+      desc: this.event.desc,
+      frecuency:this.event.frecuency
     }
  
     if (eventCopy.allDay) {
@@ -79,37 +82,38 @@ export class CalendarioPage implements OnInit {
     swiper.slidePrev();
   }
    
-  // Change between month/week/day
+  
   changeMode(mode) {
     this.calendar.mode = mode;
   }
    
-  // Focus today
+  
   today() {
     this.calendar.currentDate = new Date();
   }
    
-  // Selected date reange and hence title changed
+  
   onViewTitleChanged(title) {
     this.viewTitle = title;
   }
    
-  // Calendar event was clicked
+  
   async onEventSelected(event) {
-    // Use Angular date pipe for conversion
+    
     let start = formatDate(event.startTime, 'medium', this.locale);
     let end = formatDate(event.endTime, 'medium', this.locale);
+    let frecuencia=event.frecuency
    
     const alert = await this.alertCtrl.create({
       header: event.title,
       subHeader: event.desc,
-      message: 'From: ' + start + '<br><br>To: ' + end,
+      message: 'Inicio: ' + start + '<br><br>Final: ' +end +'<br><br>Frecuencia del Medicamento: cada ' + frecuencia + ' horas',
       buttons: ['OK']
     });
     alert.present();
   }
    
-  // Time slot was clicked
+  
   onTimeSelected(ev) {
     let selected = new Date(ev.selectedTime);
     this.event.startTime = selected.toISOString();
