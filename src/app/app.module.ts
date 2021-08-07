@@ -15,8 +15,6 @@ import { CrearMascotasPageRoutingModule } from './pages/crear-mascotas/crear-mas
 
 
 //Imports Floro
-import { AngularFireModule } from '@angular/fire';
-import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserService } from './user.service';
 
