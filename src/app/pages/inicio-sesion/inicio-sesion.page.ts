@@ -60,6 +60,7 @@ export class InicioSesionPage implements OnInit {
 			
 			if(res.user) {
 
+
 				this.usuariolog = this.user.getData(res.user.uid);
 				
 				
@@ -87,6 +88,7 @@ export class InicioSesionPage implements OnInit {
 					}
 
 				});
+
 			}
 		
 		} catch(err) {

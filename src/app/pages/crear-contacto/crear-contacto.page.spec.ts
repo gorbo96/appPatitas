@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { CrearCuentaPage } from './crear-cuenta.page';
+import { CrearContactoPage } from './crear-contacto.page';
 
-describe('CrearCuentaPage', () => {
-  let component: CrearCuentaPage;
-  let fixture: ComponentFixture<CrearCuentaPage>;
+describe('CrearContactoPage', () => {
+  let component: CrearContactoPage;
+  let fixture: ComponentFixture<CrearContactoPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CrearCuentaPage ],
+      declarations: [ CrearContactoPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CrearCuentaPage);
+    fixture = TestBed.createComponent(CrearContactoPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
@@ -21,5 +21,4 @@ describe('CrearCuentaPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 });

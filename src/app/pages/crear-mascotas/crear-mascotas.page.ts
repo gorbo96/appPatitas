@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Mascota } from 'src/app/domain/mascota';
+import { UserService } from 'src/app/user.service';
+import { NavigationExtras, Router } from '@angular/router';
+import { MascotasService } from 'src/app/services/mascotas.service';
 
 @Component({
   selector: 'app-crear-mascotas',
@@ -8,7 +11,7 @@ import { Mascota } from 'src/app/domain/mascota';
 })
 export class CrearMascotasPage implements OnInit {
 
-  constructor() { }
+  constructor(private mascotaService: MascotasService,public user: UserService,private router: Router) { }
 
   imgData: any;
   mascota: Mascota = new Mascota();
@@ -18,7 +21,19 @@ export class CrearMascotasPage implements OnInit {
     this.mascota.perfil={url : '../../assets/imagenes/pet.png'};
   }
 
-  
+
+  guardar(){
+    this.mascota.uidUser=this.user.getUID();
+    this.mascotaService.save(this.mascota);
+    this.router.navigate(["/mascotas"]);
+  }
+
+  regresar(){
+    this.router.navigate(["/mascotas"]);
+  }
+
+
+
   imageSelectedEvt(data: any) {
     // console.log(data);
     this.imgData = data;

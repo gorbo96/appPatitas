@@ -8,5 +8,6 @@ export class Contacto{
     tlfFijo:string;
     calle_primaria:string;
     calle_secundaria:string;
+    perfil:any;
     activo:boolean;
 }

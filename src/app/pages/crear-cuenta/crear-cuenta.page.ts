@@ -9,7 +9,10 @@ export class CrearCuentaPage implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
   }
+
+  
 
 }

@@ -1,35 +1,42 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Crear mascota</ion-title>
+    
+    <div style="float: left;">
+      <ion-title>Crear mascota</ion-title>
+    </div>
+
+    <div style="float: right;">
+      <ion-fab-button (click)="regresar()" >
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-fab-button>
+    </div>
+    
+    <div style="float: right;">
+      <ion-fab-button (click)="guardar()">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </div>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-fab vertical="top" horizontal="end" slot="fixed" style="margin-right: 12%;">
-    <ion-fab-button >
-      <ion-icon name="checkmark-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button >
-      <ion-icon name="close-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 
   <div id="cabecera">
-      <div id="fotoPerfil">
-          <ion-img style="width: 150px;"
-          [src]="mascota.perfil?.url">
-          </ion-img>
-          <app-take-photo source="photo"
-            (imageSelected)="imageSelectedEvt($event)"
-            (uploadFinished)="uploadFinishedEvt($event)">
-          </app-take-photo>
-          <br>
-          <app-take-photo source="none"
-            (imageSelected)="imageSelectedEvt($event)"
-            (uploadFinished)="uploadFinishedEvt($event)">
-          </app-take-photo>
+    
+    <div id="fotoPerfil">
+        <ion-img style="width: 150px;"
+        [src]="mascota.perfil?.url">
+        </ion-img>
+        <app-take-photo source="photo"
+          (imageSelected)="imageSelectedEvt($event)"
+          (uploadFinished)="uploadFinishedEvt($event)">
+        </app-take-photo>
+        <br>
+        <app-take-photo source="none"
+          (imageSelected)="imageSelectedEvt($event)"
+          (uploadFinished)="uploadFinishedEvt($event)">
+        </app-take-photo>
     </div>
 
     <div id="infoBasica">
@@ -38,7 +45,7 @@
         <ion-label>Nombre: </ion-label>
         <ion-input [(ngModel)]="mascota.nombre"></ion-input>
       </ion-item>
-
+  
       <ion-item>
         <ion-label>Tipo:</ion-label>
         <ion-select [(ngModel)]="mascota.tipo" (ionFocus)="setearRazaPerro()">
@@ -47,7 +54,7 @@
           <ion-select-option value="Rata">Rata</ion-select-option>
         </ion-select>
       </ion-item>
-
+  
       <ion-item>
         <ion-label>Sexo:</ion-label>
         <ion-select [(ngModel)]="mascota.sexo">
@@ -58,41 +65,40 @@
       </ion-item>
       
     </div>
+  </div>
 
-    <div id="detalles">
-      <h1>Informacion basica</h1>
+  <div id="detalles">
+    <h1>Informacion basica</h1>
 
-      <ion-item>
-        <ion-label>Raza:</ion-label>
-        <ion-select [(ngModel)]="mascota.raza">
-          <ion-select-option *ngFor="let raza of razas" [value]="raza.nombre">{{raza.nombre}}</ion-select-option>
-        </ion-select>
-      </ion-item>
+    <ion-item>
+      <ion-label>Raza:</ion-label>
+      <ion-select [(ngModel)]="mascota.raza">
+        <ion-select-option *ngFor="let raza of razas" [value]="raza.nombre">{{raza.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-      <ion-item>
-        <ion-label>Edad: </ion-label>
-        <ion-input [(ngModel)]="mascota.edad"></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-label>Edad: </ion-label>
+      <ion-input [(ngModel)]="mascota.edad"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label>Esterilizado:</ion-label>
-        <ion-select [(ngModel)]="mascota.esteril">
-          <ion-select-option value="Si">Si</ion-select-option>
-          <ion-select-option value="No">No</ion-select-option>
-        </ion-select>
-      </ion-item>
+    <ion-item>
+      <ion-label>Esterilizado:</ion-label>
+      <ion-select [(ngModel)]="mascota.esteril">
+        <ion-select-option value="Si">Si</ion-select-option>
+        <ion-select-option value="No">No</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-      <ion-item>
-        <ion-label>Color: </ion-label>
-        <ion-input [(ngModel)]="mascota.color"></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-label>Color: </ion-label>
+      <ion-input [(ngModel)]="mascota.color"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label>Notas: </ion-label>
-        <ion-textarea [(ngModel)]="mascota.notas" rows="6" cols="20" placeholder="Enter any notes here..."></ion-textarea>
-      </ion-item>
-
-    </div>
+    <ion-item>
+      <ion-label>Notas: </ion-label>
+      <ion-textarea [(ngModel)]="mascota.notas" rows="6" cols="20" placeholder="Enter any notes here..."></ion-textarea>
+    </ion-item>
 
   </div>
 </ion-content>

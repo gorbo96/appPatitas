@@ -28,6 +28,7 @@ const routes: Routes = [
   {
     path: 'crear-mascotas',
     loadChildren: () => import('./pages/crear-mascotas/crear-mascotas.module').then( m => m.CrearMascotasPageModule)
+
   },
   {
     path: 'menu-p',
@@ -40,7 +41,26 @@ const routes: Routes = [
   {
     path: 'centro',
     loadChildren: () => import('./pages/centro/centro.module').then( m => m.CentroPageModule)
+  },
+  {
+    path: 'calendario',
+    loadChildren: () => import('./pages/calendario/calendario.module').then( m => m.CalendarioPageModule)
+  },
+  {
+    path: 'calendario-vacuna',
+    loadChildren: () => import('./pages/calendario-vacuna/calendario-vacuna.module').then( m => m.CalendarioVacunaPageModule)
+
+  },
+  {
+    path: 'datos-mascota',
+    loadChildren: () => import('./pages/datos-mascota/datos-mascota.module').then( m => m.DatosMascotaPageModule)
+
+  },
+  {
+    path: 'crear-contacto',
+    loadChildren: () => import('./pages/crear-contacto/crear-contacto.module').then( m => m.CrearContactoPageModule)
   }
+
 
 
 ];
@@ -52,3 +72,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+

@@ -1,14 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>mascotas</ion-title>
+    <div style="float: left;">
+      <ion-title>mascotas</ion-title>
+    </div>
+    <div style="float: right;">
+      <ion-fab-button (click)="crear()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </div>
   </ion-toolbar>
   
 </ion-header>
 
 <ion-content>
-  <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button >
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  <div *ngFor="let mascota of mascotas | async">
+    <ion-item (click)="informacion(mascota)">
+      <ion-label>
+        <ion-img style="width: 100px;margin: auto;"
+        [src]="mascota.perfil?.url">
+        </ion-img>
+        <h2>{{ mascota.nombre }}</h2>
+        <p>{{ mascota.tipo }}</p>
+        <p>{{ mascota.sexo }}</p>
+      </ion-label>
+    </ion-item>
+  </div>
 </ion-content>

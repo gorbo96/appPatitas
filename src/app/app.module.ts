@@ -6,6 +6,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+
+import { NgCalendarModule } from 'ionic2-calendar';
+
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
@@ -14,22 +18,17 @@ import { CrearMascotasPageRoutingModule } from './pages/crear-mascotas/crear-mas
 
 
 
-//Imports Floro
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { UserService } from './user.service';
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-
-
   imports: [BrowserModule, 
             IonicModule.forRoot(), 
             AppRoutingModule,
+            NgCalendarModule,
             AngularFireModule.initializeApp(environment.firebaseConfig),
 		        AngularFirestoreModule,
             CrearMascotasPageRoutingModule],
-  providers: [Camera,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, UserService],
+  providers: [Camera,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
