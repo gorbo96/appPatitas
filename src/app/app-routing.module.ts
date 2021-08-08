@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
 
-    redirectTo: 'inicio-sesion',
+    redirectTo: 'calendario',
 
 
     pathMatch: 'full'
