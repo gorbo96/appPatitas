@@ -1,5 +1,6 @@
 <ion-header>
   <ion-toolbar>
+    
     <div style="float: left;">
       <ion-title>Crear mascota</ion-title>
     </div>
@@ -22,20 +23,22 @@
 <ion-content>
 
   <div id="cabecera">
-      <div id="fotoPerfil">
-          <ion-img style="width: 150px;"
-          [src]="mascota.perfil?.url">
-          </ion-img>
-          <app-take-photo source="photo"
-            (imageSelected)="imageSelectedEvt($event)"
-            (uploadFinished)="uploadFinishedEvt($event)">
-          </app-take-photo>
-          <br>
-          <app-take-photo source="none"
-            (imageSelected)="imageSelectedEvt($event)"
-            (uploadFinished)="uploadFinishedEvt($event)">
-          </app-take-photo>
+    
+    <div id="fotoPerfil">
+        <ion-img style="width: 150px;"
+        [src]="mascota.perfil?.url">
+        </ion-img>
+        <app-take-photo source="photo"
+          (imageSelected)="imageSelectedEvt($event)"
+          (uploadFinished)="uploadFinishedEvt($event)">
+        </app-take-photo>
+        <br>
+        <app-take-photo source="none"
+          (imageSelected)="imageSelectedEvt($event)"
+          (uploadFinished)="uploadFinishedEvt($event)">
+        </app-take-photo>
     </div>
+
     <div id="infoBasica">
 
       <ion-item>
