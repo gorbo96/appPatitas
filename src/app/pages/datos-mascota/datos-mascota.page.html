@@ -94,31 +94,96 @@
 
     <!-- HTML para el Profecionales -->
     <div *ngIf="centProfecionales">
-      <h1>Profecionales</h1>
-      <div style="float: right;">
-        <ion-fab-button (click)="regresar()" >
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
+      <div style="float: left; width: 100%;">
+        <div style="float: right;">
+          <ion-fab-button (click)="agregarProfecinales()" >
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </div>
+        <h1>Profecionales</h1>
+      </div>
+      <div div style="float: left; width: 100%;">
+        <div *ngFor="let contacto of contactos | async">
+          <ion-item>
+            <ion-label>
+              <div div style="float: left; width: 50%; margin-left: 5%;">
+                <h2>{{ contacto.nombreEmpresa }}</h2>
+                <h2>{{ contacto.nombrePersona }}</h2>
+                <h2>{{ contacto.ocupacion }}</h2>
+                <p>{{ contacto.tlfMovil }}</p>
+                <p>{{ contacto.tlfFijo }}</p>
+              </div>
+              <div div style="float: left; width: 30%; margin-left: 5%; margin-right: 5%;">
+                <ion-img style="width: 100px;margin: auto;"
+                [src]="contacto.perfil?.url">
+                </ion-img>
+              </div>
+            </ion-label>
+          </ion-item>
+          <ion-button expand="block" (click)="llamar(contacto)">llamar</ion-button>
+        </div>
       </div>
     </div>
 
     <!-- HTML para el Vacunacion -->
     <div *ngIf="centVacunacion">
-      <h1>Vacunacion</h1>
-      <div style="float: right;">
-        <ion-fab-button (click)="regresar()" >
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
+      <div style="float: left; width: 100%;">
+        <div style="float: right;">
+          <ion-fab-button (click)="agregarVacuna()" >
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </div>
+        <h1>Vacunacion</h1>
+      </div>
+      <div div style="float: left; width: 100%;">
+        <div *ngFor="let vacuna of vacunas | async">
+          <ion-item>
+            <ion-label>
+              <div div style="float: left; width: 15%; margin-left: 5%;">
+                <ion-img style="width: 100px;margin: auto;"
+                [src]="imgVacuna?.url">
+                </ion-img>
+              </div>
+              <div div style="float: left; width: 50%; margin-left: 15%; margin-right: 5%;">
+                <h2>Vacuna: {{ vacuna.nombre }}</h2>
+                <h2>Utilidad: {{ vacuna.utilidad }}</h2>
+                <p>Ultima Fecha: {{ vacuna.fecha }}</p>
+                <p>Fecha Proxima: {{ vacuna.fechaProxima }}</p>
+              </div>
+            </ion-label>
+          </ion-item>
+        </div>
       </div>
     </div>
 
     <!-- HTML para el Medicamentos -->
     <div *ngIf="centMedicamentos">
-      <h1>Medicamentos</h1>
-      <div style="float: right;">
-        <ion-fab-button (click)="regresar()" >
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
+      <div style="float: left; width: 100%;">
+        <div style="float: right;">
+          <ion-fab-button (click)="agregarMedicamento()" >
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </div>
+        <h1>Medicamentos</h1>
+      </div>
+      <div div style="float: left; width: 100%;">
+        <div *ngFor="let medicamento of medicamentos | async">
+          <ion-item>
+            <ion-label>
+              <div div style="float: left; width: 15%; margin-left: 5%;">
+                <ion-img style="width: 100px;margin: auto;"
+                [src]="imgMedicamento?.url">
+                </ion-img>
+              </div>
+              <div div style="float: left; width: 50%; margin-left: 15%; margin-right: 5%;">
+                <h2>Medicamento: {{ medicamento.nombre }}</h2>
+                <h2>Freciuencia: {{ medicamento.frecuencia }}</h2>
+                <p>Ultima Fecha: {{ medicamento.fechaInicio }}</p>
+                <p>Fecha Proxima: {{ medicamento.fechaFin }}</p>
+              </div>
+            </ion-label>
+          </ion-item>
+        </div>
       </div>
     </div>
 

@@ -1,0 +1,30 @@
+<ion-header>
+  
+  <ion-toolbar>
+
+    <ion-fab-button (click)="volver()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+
+    <ion-title>{{tipo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div *ngFor="let centro of centros | async">
+    <ion-item (click)="bait(centro )">
+      <ion-label>
+
+        <h2>{{ centro.nombre }}</h2>
+        <h3>{{ centro.numero1 }}</h3>
+        <p>{{ centro.diasAtencion }}</p>
+        
+      </ion-label>
+    </ion-item>
+  </div>
+
+
+
+</ion-content>

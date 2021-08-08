@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-fab-button (click)="logout()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+
+    <ion-title> {{nombre}} </ion-title>
+  
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="6" class="ion-text-center">
+        <ion-img style="width: 100px;margin: auto;" (click)="misMascotas()"  src="../../../assets/menu/mascotas.png"></ion-img>
+        <ion-card-title>Mis Mascotas</ion-card-title>
+      </ion-col>
+
+      <ion-col size="6" class="ion-text-center">
+        <ion-img style="width: 100px;margin: auto;"  src="../../../assets/menu/agenda.png"></ion-img>
+        <ion-card-title>Agenda</ion-card-title>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="6" class="ion-text-center">
+        <ion-img style="width: 100px;margin: auto;"  src="../../../assets/menu/profecionales.png"></ion-img>
+        <ion-card-title>Profesionales</ion-card-title>
+      </ion-col>
+
+      <ion-col size="6" class="ion-text-center">
+        <ion-img style="width: 100px;margin: auto;"  src="../../../assets/menu/suministros.png"></ion-img>
+        <ion-card-title>Suministros</ion-card-title>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="6" class="ion-text-center">
+        <ion-img style="width: 100px;margin: auto;" (click)="centro(false)" src="../../../assets/menu/centros.png"></ion-img>
+        <ion-card-title>Centros Veterinarios</ion-card-title>
+      </ion-col>
+
+      <ion-col size="6" class="ion-text-center">
+        <ion-img style="width: 100px;margin: auto;" (click)="centro(true)"  src="../../../assets/menu/tienda.png"></ion-img>
+        <ion-card-title>Tiendas de alimentos</ion-card-title>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+
+
+
+</ion-content>

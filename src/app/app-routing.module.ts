@@ -1,12 +1,11 @@
+
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
 const routes: Routes = [
   {
     path: '',
 
-    redirectTo: 'calendario',
-
+    redirectTo: 'inicio-sesion',
 
     pathMatch: 'full'
   },
@@ -32,6 +31,18 @@ const routes: Routes = [
 
   },
   {
+    path: 'menu-p',
+    loadChildren: () => import('./pages/menu-p/menu-p.module').then( m => m.MenuPPageModule)
+  },
+  {
+    path: 'listacentros/:id',
+    loadChildren: () => import('./pages/listacentros/listacentros.module').then( m => m.ListacentrosPageModule)
+  },
+  {
+    path: 'centro',
+    loadChildren: () => import('./pages/centro/centro.module').then( m => m.CentroPageModule)
+  },
+  {
     path: 'calendario',
     loadChildren: () => import('./pages/calendario/calendario.module').then( m => m.CalendarioPageModule)
   },
@@ -44,7 +55,22 @@ const routes: Routes = [
     path: 'datos-mascota',
     loadChildren: () => import('./pages/datos-mascota/datos-mascota.module').then( m => m.DatosMascotaPageModule)
 
+  },
+  {
+    path: 'crear-contacto',
+    loadChildren: () => import('./pages/crear-contacto/crear-contacto.module').then( m => m.CrearContactoPageModule)
+  },
+  {
+    path: 'vacuna',
+    loadChildren: () => import('./pages/vacuna/vacuna.module').then( m => m.VacunaPageModule)
+
+  },
+  {
+    path: 'medicamentos',
+    loadChildren: () => import('./pages/medicamentos/medicamentos.module').then( m => m.MedicamentosPageModule)
   }
+
+
 
 
 ];
@@ -56,3 +82,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+
