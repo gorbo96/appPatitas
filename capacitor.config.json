@@ -1,6 +1,8 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "appPatitas",
-  "webDir": "www",
-  "bundledWebRuntime": false
+
+	"appId": "com.appPatita.capalogin",
+	"appName": "appPatitas",
+	"webDir": "www",
+	"bundledWebRuntime": false
+
 }

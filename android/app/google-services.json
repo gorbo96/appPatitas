@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "864649497531",
+    "project_id": "proyectopatitas-63db9",
+    "storage_bucket": "proyectopatitas-63db9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864649497531:android:bb90ac3d1b6425d5a6529e",
+        "android_client_info": {
+          "package_name": "com.appPatita.capalogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864649497531-vs0mqcok9a380es9jm3eji478rlfk1db.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAozGzhSru-O3zjkdiI_4XrPNfCo_UTK_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864649497531-vs0mqcok9a380es9jm3eji478rlfk1db.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

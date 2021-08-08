@@ -13,6 +13,74 @@
 
 <ion-content>
 
-  
+  <ion-grid>
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="6" class="ion-text-center">
+        
+        <ion-img style="width: 100px;margin: auto;" (click)="test()"  src="../../../assets/imagenes/centroDef.png"></ion-img>
+
+      </ion-col>
+
+      <ion-col size="6" class="ion-text-center">
+        
+        <ion-card-title>Horario:</ion-card-title>
+        <ion-card-content>{{ dias }}</ion-card-content>
+        <ion-card-content>{{ horario }}</ion-card-content>
+        
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="6" class="ion-text-center">
+        <ion-card-title>Contactos :</ion-card-title>
+        <ion-card-content>{{ contacto1 }}</ion-card-content>
+        <ion-card-content>{{ contacto2 }}</ion-card-content>
+      </ion-col>
+
+      <ion-col size="6" class="ion-text-center">
+        
+
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        
+        <ion-button expand="block" (click)="mapa()">Como llegar</ion-button>
+
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        
+        <ion-card-title>Acerca de:</ion-card-title>
+        <ion-card-content>{{ descripcion }}</ion-card-content>
+
+
+      </ion-col>
+    </ion-row>
+
+
+
+
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-card-title>Galeria: </ion-card-title>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-card-title>Comentarios: </ion-card-title>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 
 </ion-content>
+
