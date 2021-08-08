@@ -4,6 +4,11 @@
       <ion-title>mascotas</ion-title>
     </div>
     <div style="float: right;">
+      <ion-fab-button (click)="regresar()" >
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-fab-button>
+    </div>
+    <div style="float: right;">
       <ion-fab-button (click)="crear()">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
@@ -16,12 +21,16 @@
   <div *ngFor="let mascota of mascotas | async">
     <ion-item (click)="informacion(mascota)">
       <ion-label>
-        <ion-img style="width: 100px;margin: auto;"
-        [src]="mascota.perfil?.url">
-        </ion-img>
-        <h2>{{ mascota.nombre }}</h2>
-        <p>{{ mascota.tipo }}</p>
-        <p>{{ mascota.sexo }}</p>
+        <div div style="float: left; width: 50%; margin-left: 5%; margin-right: 5%;">
+          <ion-img style="width: 100px;margin: auto;"
+          [src]="mascota.perfil?.url">
+          </ion-img>
+        </div>
+        <div div style="float: left; width: 30%; margin-left: 5%;">
+          <h2>Nombre: {{ mascota.nombre }}</h2>
+          <p>Especie: {{ mascota.tipo }}</p>
+          <p>Sexo: {{ mascota.sexo }}</p>
+        </div>
       </ion-label>
     </ion-item>
   </div>

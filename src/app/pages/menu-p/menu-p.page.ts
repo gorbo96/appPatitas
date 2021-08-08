@@ -39,4 +39,8 @@ export class MenuPPage implements OnInit {
   
   }
 
+  misMascotas(){
+    this.router.navigate(['/mascotas'])
+  }
+
 }

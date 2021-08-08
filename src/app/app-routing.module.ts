@@ -63,10 +63,15 @@ const routes: Routes = [
   {
     path: 'mapa',
     loadChildren: () => import('./pages/mapa/mapa.module').then( m => m.MapaPageModule)
+  },
+  {
+    path: 'vacuna',
+    loadChildren: () => import('./pages/vacuna/vacuna.module').then( m => m.VacunaPageModule)
+  },
+  {
+    path: 'medicamentos',
+    loadChildren: () => import('./pages/medicamentos/medicamentos.module').then( m => m.MedicamentosPageModule)
   }
-
-
-
 
 ];
 
@@ -77,4 +82,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
-

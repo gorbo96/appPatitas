@@ -3,6 +3,9 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Contacto } from 'src/app/domain/contacto';
 import { Mascota } from 'src/app/domain/mascota';
 import { ContactosService } from 'src/app/services/contactos.service';
+import { CallNumber } from '@ionic-native/call-number/ngx';
+import { VacunasService } from 'src/app/services/vacunas.service';
+import { MedicamentosService } from 'src/app/services/medicamentos.service';
 
 @Component({
   selector: 'app-datos-mascota',
@@ -14,13 +17,23 @@ export class DatosMascotaPage implements OnInit {
   mascota : Mascota = new Mascota();
 
   contactos : any;
+  vacunas :  any;
+  medicamentos : any;
+
+  imgVacuna : any;
+  imgMedicamento : any;
 
   centDetalles=true;
   centProfecionales=false;
   centVacunacion=false;
   centMedicamentos=false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private contactosService: ContactosService) { 
+  constructor(private route: ActivatedRoute, 
+              private router: Router, 
+              private contactosService: ContactosService,
+              private callNumber: CallNumber,
+              private vacunasService: VacunasService,
+              private medicamentosService :  MedicamentosService) { 
     route.queryParams.subscribe(params=>{
       console.log(params)
       this.mascota = params.mascota;
@@ -31,7 +44,11 @@ export class DatosMascotaPage implements OnInit {
   }
 
   ngOnInit() {
+    this.imgVacuna={url:"../../assets/imagenes/vacuna.png"};
+    this.imgMedicamento={url:"../../assets/imagenes/botiquin.png"};
     this.contactos=this.contactosService.getMascotas(this.mascota.uid);
+    this.vacunas=this.vacunasService.getVacunas(this.mascota.uid);
+    this.medicamentos=this.medicamentosService.getVacunas(this.mascota.uid);
   }
 
   regresar(){
@@ -74,6 +91,48 @@ export class DatosMascotaPage implements OnInit {
       }
     }
     this.router.navigate(["/crear-contacto"], params);
+  }
+
+  agregarVacuna(){
+
+    let params: NavigationExtras={
+      queryParams:{
+        mascota:this.mascota
+      }
+    }
+    this.router.navigate(["/vacuna"], params);
+  }
+
+  agregarMedicamento(){
+
+    let params: NavigationExtras={
+      queryParams:{
+        mascota:this.mascota
+      }
+    }
+    this.router.navigate(["/medicamentos"], params);
+  }
+
+
+  llamar(contacto:any){
+    this.callNumber.callNumber(""+contacto.tlfMovil+"", true)
+    .then(res => console.log('Launched dialer!', res))
+    .catch(err => console.log('Error launching dialer', err));
+  }
+
+  eliminarContacto(contacto:any){
+    contacto.activo=false;
+    this.contactosService.save(contacto);
+  }
+
+  eliminarVacuna(vacuna:any){
+    vacuna.activo=false;
+    this.vacunasService.save(vacuna);
+  }
+
+  eliminarMedicamento(medicamento:any){
+    medicamento.activo=false;
+    this.medicamentosService.save(medicamento);
   }
 
 }

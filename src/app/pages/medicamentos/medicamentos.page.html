@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>medicamentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nuevo medicamento</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+ 
+      <ion-item>
+        <ion-input type="text" placeholder="Medicamento: " [(ngModel)]="medicamento.nombre"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Frecuencia: " [(ngModel)]="medicamento.frecuencia"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Inicio</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="medicamento.fechaInicio"></ion-datetime>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Final</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="medicamento.fechaFin"></ion-datetime>
+      </ion-item>
+
+      <ion-button fill="outline" expand="block" (click)="guardar()" >Guardar</ion-button>
+      
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

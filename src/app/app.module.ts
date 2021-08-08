@@ -16,6 +16,10 @@ import { environment } from 'src/environments/environment';
 import { Camera } from '@ionic-native/camera/ngx';
 import { CrearMascotasPageRoutingModule } from './pages/crear-mascotas/crear-mascotas-routing.module';
 
+import { CallNumber } from '@ionic-native/call-number/ngx';
+
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 
 //IMPORTAMOS GEOLOCATION Y GEOCODER
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -35,6 +39,8 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
             CrearMascotasPageRoutingModule],
   providers: [Camera,
               //AÑADIMOS GEOLOCATION Y GEOCODER
+              CallNumber,
+              LocalNotifications,
               Geolocation,    
               NativeGeocoder,
               { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

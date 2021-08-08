@@ -5,4 +5,5 @@ export class Vacunacion{
     nombre:string;
     utilidad:string;
     fechaProxima:Date;
+    activo:boolean;
 }
