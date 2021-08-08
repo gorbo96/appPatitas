@@ -26,7 +26,7 @@
 
         <ion-item *ngIf="showLoginOps">
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input [(ngModel)]="usuario.clave"></ion-input>
+          <ion-input type="password" [(ngModel)]="usuario.clave"></ion-input>
         </ion-item>
 
         <ion-button  expand="block" (click)="verificar()" *ngIf="showLoginOps">Acceder</ion-button>
@@ -46,12 +46,12 @@
 
         <ion-item *ngIf="showRegOps">
           <ion-label position="floating">Correo</ion-label>
-          <ion-input [(ngModel)]="usuario.correo"></ion-input>
+          <ion-input type="password" [(ngModel)]="usuario.correo"></ion-input>
         </ion-item>
 
         <ion-item *ngIf="showRegOps">
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input [(ngModel)]="usuario.clave"></ion-input>
+          <ion-input type="password" [(ngModel)]="usuario.clave"></ion-input>
         </ion-item>
 
         <ion-item *ngIf="showRegOps">
@@ -69,7 +69,7 @@
 
     <ion-row>
       <ion-col size="10" offset="1">
-        <ion-button fill="solid" expand="block" (click)="regGogul()">Registrarse con google</ion-button>
+        <ion-button fill="solid" expand="block" (click)="onLoginGoogle()">Iniciar con google</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

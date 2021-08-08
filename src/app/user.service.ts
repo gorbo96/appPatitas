@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 interface user{
     uid:string,
@@ -16,7 +17,7 @@ interface user{
 export class UserService {
   private user:user
 
-  constructor() { }
+  constructor(public afs: AngularFirestore) { }
 
   setUser(user:user){
     this.user = user
@@ -25,5 +26,27 @@ export class UserService {
   getUID(){
     return this.user.uid
   }
+
+  getName(){
+    return this.user.nombre
+  }
+
+
+  getData(uid:string):Observable<any[]>{
+    console.log(uid);
+    
+    return this.afs.collection("usuarios",
+            ref=> ref.where("uid","==",uid)).valueChanges();
+  }
+
+  getActivo(){
+    return this.user.activo
+  }
+  
+  getUser(){
+    return this.user
+  }
+
+  
 
 }

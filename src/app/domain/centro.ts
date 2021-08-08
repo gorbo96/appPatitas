@@ -10,6 +10,6 @@ export class Centro{
     lat:number;
     lng:number;
     acercaDe:string;
-    comentarios:string;
     activo:boolean;
+    tipo:boolean;
 }

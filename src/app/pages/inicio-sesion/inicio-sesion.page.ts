@@ -8,6 +8,9 @@ import { UserService } from '../../user.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
+import firebase from 'firebase/app';
+
+
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.page.html',
@@ -19,7 +22,8 @@ export class InicioSesionPage implements OnInit {
 
   usuario: Usuario = new Usuario();
 
-  
+  usuariolog : any;
+  elementUsu : any;
   cclave: string = ""
 
   showLoginOps = false
@@ -55,15 +59,34 @@ export class InicioSesionPage implements OnInit {
 			const res = await this.afAuth.signInWithEmailAndPassword(usuario.correo , usuario.clave)
 			
 			if(res.user) {
-				this.user.setUser({
-					nombre: usuario.nombre ,
-					correo: usuario.correo,
-					clave: usuario.clave,
-					activo: usuario.activo,
-					tipo: usuario.tipo,
-					uid: res.user.uid
-				})
-				//this.router.navigate(['/tabs'])
+
+				this.usuariolog = this.user.getData(res.user.uid);
+				
+				
+
+				this.usuariolog.forEach((element) => {
+					
+					
+					console.log(element[0]);
+
+					if(element[0].activo == false){
+						this.presentAlert('Error', 'Usuario eliminado')
+					}
+					else{
+						this.user.setUser({
+	
+							nombre: element[0].nombre ,
+							correo: element[0].email,
+							clave: element[0].clave,
+							activo:  element[0].activo,
+							tipo: element[0].tipo,
+							uid: element[0].uid
+						})
+						this.router.navigate(['/menu-p'])
+						this.showLoginOps = false
+					}
+
+				});
 			}
 		
 		} catch(err) {
@@ -109,14 +132,19 @@ export class InicioSesionPage implements OnInit {
 				uid: res.user.uid
 			})
 
-			this.presentAlert('Exito', 'Usuario creado. Inicie sesion con su cuenta')
-			
+			this.presentAlert('Exito', 'Usuario creado. Iniciando sesion con su cuenta')
+			this.router.navigate(['/menu-p'])
+			this.showRegOps = false
 
 		} catch(error) {
 			console.dir(error)
 			if(error.code === "auth/invalid-email") {
 				this.presentAlert('Error', 'Email no valido')
 			}
+			if(error.code === "auth/email-already-in-use") {
+				this.presentAlert('Error', 'Email ya usado')
+			}
+			
 		}
 	}
 
@@ -138,12 +166,43 @@ export class InicioSesionPage implements OnInit {
     }
   }
 
-  regGogul(){
-    if (this.showRegGulOps == false){
-      this.showLoginOps = false
-      this.showRegOps = false
-      this.showRegGulOps = true
+
+  async onLoginGoogle() {
+    try {
+	const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      
+        
+		this.afstore.doc(`usuarios/${res.user.uid}`).set({
+			
+			nombre: res.user.displayName ,
+			correo: res.user.email,
+			clave: null,
+			activo: true,
+			tipo: true,
+			uid: res.user.uid
+		})
+		console.log(res);
+
+		
+		this.user.setUser({
+			nombre: res.user.displayName ,
+			correo: res.user.email,
+			clave: null,
+			activo: true,
+			tipo: true,
+			uid: res.user.uid
+		})
+	
+		this.router.navigate(['/menu-p'])
+	
+	
+    } catch (error) {
+      console.log('Error->', error);
     }
   }
+
+  
+
+
 
 }

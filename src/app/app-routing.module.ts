@@ -28,7 +28,20 @@ const routes: Routes = [
   {
     path: 'crear-mascotas',
     loadChildren: () => import('./pages/crear-mascotas/crear-mascotas.module').then( m => m.CrearMascotasPageModule)
+  },
+  {
+    path: 'menu-p',
+    loadChildren: () => import('./pages/menu-p/menu-p.module').then( m => m.MenuPPageModule)
+  },
+  {
+    path: 'listacentros/:id',
+    loadChildren: () => import('./pages/listacentros/listacentros.module').then( m => m.ListacentrosPageModule)
+  },
+  {
+    path: 'centro',
+    loadChildren: () => import('./pages/centro/centro.module').then( m => m.CentroPageModule)
   }
+
 
 ];
 
