@@ -17,6 +17,11 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { CrearMascotasPageRoutingModule } from './pages/crear-mascotas/crear-mascotas-routing.module';
 
 
+//IMPORTAMOS GEOLOCATION Y GEOCODER
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +33,11 @@ import { CrearMascotasPageRoutingModule } from './pages/crear-mascotas/crear-mas
             AngularFireModule.initializeApp(environment.firebaseConfig),
 		        AngularFirestoreModule,
             CrearMascotasPageRoutingModule],
-  providers: [Camera,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [Camera,
+              //AÑADIMOS GEOLOCATION Y GEOCODER
+              Geolocation,    
+              NativeGeocoder,
+              { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

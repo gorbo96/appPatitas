@@ -59,7 +59,12 @@ const routes: Routes = [
   {
     path: 'crear-contacto',
     loadChildren: () => import('./pages/crear-contacto/crear-contacto.module').then( m => m.CrearContactoPageModule)
+  },
+  {
+    path: 'mapa',
+    loadChildren: () => import('./pages/mapa/mapa.module').then( m => m.MapaPageModule)
   }
+
 
 
 
