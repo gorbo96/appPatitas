@@ -1,6 +1,6 @@
-
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
 const routes: Routes = [
   {
     path: '',
@@ -63,15 +63,11 @@ const routes: Routes = [
   {
     path: 'vacuna',
     loadChildren: () => import('./pages/vacuna/vacuna.module').then( m => m.VacunaPageModule)
-
   },
   {
     path: 'medicamentos',
     loadChildren: () => import('./pages/medicamentos/medicamentos.module').then( m => m.MedicamentosPageModule)
   }
-
-
-
 
 ];
 
@@ -82,4 +78,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
-
