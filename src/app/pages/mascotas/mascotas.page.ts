@@ -25,6 +25,10 @@ export class MascotasPage implements OnInit {
     this.router.navigate(["/crear-mascotas"]);
   }
 
+  regresar(){
+    this.router.navigate(["/menu-p"]);
+  }
+
   informacion(mascota:any){
     let params: NavigationExtras={
       queryParams:{

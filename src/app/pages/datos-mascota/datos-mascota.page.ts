@@ -120,4 +120,19 @@ export class DatosMascotaPage implements OnInit {
     .catch(err => console.log('Error launching dialer', err));
   }
 
+  eliminarContacto(contacto:any){
+    contacto.activo=false;
+    this.contactosService.save(contacto);
+  }
+
+  eliminarVacuna(vacuna:any){
+    vacuna.activo=false;
+    this.vacunasService.save(vacuna);
+  }
+
+  eliminarMedicamento(medicamento:any){
+    medicamento.activo=false;
+    this.medicamentosService.save(medicamento);
+  }
+
 }
