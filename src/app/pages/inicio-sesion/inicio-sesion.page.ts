@@ -171,8 +171,8 @@ export class InicioSesionPage implements OnInit {
 
   async onLoginGoogle() {
     try {
-	const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-      
+		
+		const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
         
 		this.afstore.doc(`usuarios/${res.user.uid}`).set({
 			
