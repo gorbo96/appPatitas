@@ -2,6 +2,7 @@ import { CalendarComponent } from 'ionic2-calendar';
 import { Component, ViewChild, OnInit, Inject, LOCALE_ID } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @Component({
   selector: 'app-calendario',
@@ -31,10 +32,23 @@ export class CalendarioPage implements OnInit {
  
   @ViewChild(CalendarComponent) myCal: CalendarComponent;
  
-  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) { }
+  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string,private localNotifications: LocalNotifications) { 
+    ;
+  }
  
   ngOnInit() {
     this.resetEvent();
+    this.localNotifications.requestPermission()    
+  }
+
+  schedulebasic(){    
+    let fecha=new Date();
+    fecha.setMinutes(10)
+    fecha.setHours(9)
+    this.localNotifications.schedule({
+      text: fecha.toString(),
+      trigger: {at: fecha},                 
+   });
   }
  
   resetEvent() {
