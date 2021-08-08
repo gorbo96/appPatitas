@@ -11,4 +11,5 @@ export class Centro{
     lng:number;
     acercaDe:string;
     activo:boolean;
+    tipo:boolean;
 }

@@ -7,7 +7,6 @@ const routes: Routes = [
 
     redirectTo: 'inicio-sesion',
 
-
     pathMatch: 'full'
   },
   {
@@ -32,6 +31,18 @@ const routes: Routes = [
 
   },
   {
+    path: 'menu-p',
+    loadChildren: () => import('./pages/menu-p/menu-p.module').then( m => m.MenuPPageModule)
+  },
+  {
+    path: 'listacentros/:id',
+    loadChildren: () => import('./pages/listacentros/listacentros.module').then( m => m.ListacentrosPageModule)
+  },
+  {
+    path: 'centro',
+    loadChildren: () => import('./pages/centro/centro.module').then( m => m.CentroPageModule)
+  },
+  {
     path: 'calendario',
     loadChildren: () => import('./pages/calendario/calendario.module').then( m => m.CalendarioPageModule)
   },
@@ -44,7 +55,8 @@ const routes: Routes = [
     path: 'datos-mascota',
     loadChildren: () => import('./pages/datos-mascota/datos-mascota.module').then( m => m.DatosMascotaPageModule)
 
-  },  {
+  },
+  {
     path: 'crear-contacto',
     loadChildren: () => import('./pages/crear-contacto/crear-contacto.module').then( m => m.CrearContactoPageModule)
   }
@@ -60,3 +72,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+
