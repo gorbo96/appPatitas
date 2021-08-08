@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>vacuna</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nueva vacuna</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+ 
+      <ion-item>
+        <ion-input type="text" placeholder="Vacuna: " [(ngModel)]="vacunacion.nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Utilidad" [(ngModel)]="vacunacion.utilidad"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Inicio</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="vacunacion.fecha"></ion-datetime>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Final</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="vacunacion.fechaProxima"></ion-datetime>
+      </ion-item>
+
+      <ion-button fill="outline" expand="block" (click)="guardar()" >Guardar</ion-button>
+      
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

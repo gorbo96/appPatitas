@@ -16,7 +16,7 @@ import { environment } from 'src/environments/environment';
 import { Camera } from '@ionic-native/camera/ngx';
 import { CrearMascotasPageRoutingModule } from './pages/crear-mascotas/crear-mascotas-routing.module';
 
-
+import { CallNumber } from '@ionic-native/call-number/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +28,7 @@ import { CrearMascotasPageRoutingModule } from './pages/crear-mascotas/crear-mas
             AngularFireModule.initializeApp(environment.firebaseConfig),
 		        AngularFirestoreModule,
             CrearMascotasPageRoutingModule],
-  providers: [Camera,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [CallNumber, Camera,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
