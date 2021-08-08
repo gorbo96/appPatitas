@@ -171,6 +171,7 @@ export class InicioSesionPage implements OnInit {
 
   async onLoginGoogle() {
     try {
+
 	const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
 		this.router.navigate(['/menu-p'])
         
