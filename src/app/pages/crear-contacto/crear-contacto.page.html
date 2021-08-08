@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <div style="float: left;">
+      <ion-title>Crear contacto</ion-title>
+    </div>
+
+    <div style="float: right;">
+      <ion-fab-button (click)="regresar()" >
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-fab-button>
+    </div>
+    
+    <div style="float: right;">
+      <ion-fab-button (click)="guardar()">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Informacion basica</ion-label>
+    </ion-item-divider>
+  
+    <div class="datos">
+      <ion-item>
+        <ion-label>Empresa: </ion-label>
+        <ion-input [(ngModel)]="contacto.nombreEmpresa"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Nombre: </ion-label>
+        <ion-input [(ngModel)]="contacto.nombrePersona"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Tipo:</ion-label>
+        <ion-select [(ngModel)]="contacto.ocupacion" (ionFocus)="setIcon()">
+          <ion-select-option value="Veterinario">Veterinario</ion-select-option>
+          <ion-select-option value="Peluquero">Peluquero</ion-select-option>
+          <ion-select-option value="Alimentos">Alimentos</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+  </ion-item-group>
+
+  <ion-item-group>
+
+    <ion-item-divider>
+      <ion-label>Numeros de telefono</ion-label>
+    </ion-item-divider>
+
+    <div class="datos">
+  
+      <ion-item>
+        <ion-label>Movil: </ion-label>
+        <ion-input [(ngModel)]="contacto.tlfMovil"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fijo: </ion-label>
+        <ion-input [(ngModel)]="contacto.tlfFijo"></ion-input>
+      </ion-item>
+
+    </div>
+
+  </ion-item-group>
+
+  <ion-item-group>
+
+    <ion-item-divider>
+      <ion-label>Localizacion</ion-label>
+    </ion-item-divider>
+
+    <div class="datos">
+  
+      <ion-item>
+        <ion-label>Calle Primaria: </ion-label>
+        <ion-input [(ngModel)]="contacto.calle_primaria"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Calle Secundaria: </ion-label>
+        <ion-input [(ngModel)]="contacto.calle_secundaria"></ion-input>
+      </ion-item>
+
+    </div>
+
+  </ion-item-group>
+
+</ion-content>

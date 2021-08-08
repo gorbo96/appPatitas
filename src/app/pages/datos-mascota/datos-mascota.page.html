@@ -94,11 +94,25 @@
 
     <!-- HTML para el Profecionales -->
     <div *ngIf="centProfecionales">
-      <h1>Profecionales</h1>
       <div style="float: right;">
-        <ion-fab-button (click)="regresar()" >
+        <ion-fab-button (click)="agregarProfecinales()" >
           <ion-icon name="add"></ion-icon>
         </ion-fab-button>
+      </div>
+      <h1>Profecionales</h1>
+      <div *ngFor="let contacto of contactos | async">
+        <ion-item>
+          <ion-label>
+            <ion-img style="width: 100px;margin: auto;"
+            [src]="contacto.perfil?.url">
+            </ion-img>
+            <h2>{{ contacto.nombreEmpresa }}</h2>
+            <h2>{{ contacto.nombrePersona }}</h2>
+            <h2>{{ contacto.ocupacion }}</h2>
+            <p>{{ contacto.tlfMovil }}</p>
+            <p>{{ contacto.tlfFijo }}</p>
+          </ion-label>
+        </ion-item>
       </div>
     </div>
 

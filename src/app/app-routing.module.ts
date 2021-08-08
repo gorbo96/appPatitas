@@ -44,7 +44,11 @@ const routes: Routes = [
     path: 'datos-mascota',
     loadChildren: () => import('./pages/datos-mascota/datos-mascota.module').then( m => m.DatosMascotaPageModule)
 
+  },  {
+    path: 'crear-contacto',
+    loadChildren: () => import('./pages/crear-contacto/crear-contacto.module').then( m => m.CrearContactoPageModule)
   }
+
 
 
 ];
