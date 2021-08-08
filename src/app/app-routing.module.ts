@@ -59,7 +59,15 @@ const routes: Routes = [
   {
     path: 'crear-contacto',
     loadChildren: () => import('./pages/crear-contacto/crear-contacto.module').then( m => m.CrearContactoPageModule)
+  },  {
+    path: 'vacuna',
+    loadChildren: () => import('./pages/vacuna/vacuna.module').then( m => m.VacunaPageModule)
+  },
+  {
+    path: 'medicamentos',
+    loadChildren: () => import('./pages/medicamentos/medicamentos.module').then( m => m.MedicamentosPageModule)
   }
+
 
 
 

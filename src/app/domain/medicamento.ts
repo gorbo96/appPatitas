@@ -5,4 +5,5 @@ export class Medicamento{
     fechaInicio:Date;
     frecuencia:number;
     fechaFin:Date;
+    activo:boolean;
 }
