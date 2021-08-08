@@ -21,6 +21,11 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 
+//IMPORTAMOS GEOLOCATION Y GEOCODER
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,8 +37,13 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
             AngularFireModule.initializeApp(environment.firebaseConfig),
 		        AngularFirestoreModule,
             CrearMascotasPageRoutingModule],
-
-  providers: [CallNumber, Camera,LocalNotifications,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [Camera,
+              //AÑADIMOS GEOLOCATION Y GEOCODER
+              CallNumber,
+              LocalNotifications,
+              Geolocation,    
+              NativeGeocoder,
+              { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

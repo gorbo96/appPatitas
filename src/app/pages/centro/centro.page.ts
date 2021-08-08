@@ -13,13 +13,27 @@ export class CentroPage implements OnInit {
               public router: Router,) { }
 
   info:any
-  nombre: string;
+  nombre:string;
+  horario:string;
+  dias:string;
+  contacto1:string;
+  contacto2:string;
+  descripcion:string;
 
   ngOnInit() {
     this.info = this.centroinf.getcentro();
     this.nombre = this.info.nombre; 
+    this.horario = "De " + this.info.horaIniAten + " a " + this.info.horaFinAten;
+    this.dias = this.info.diasAtencion;
+    this.contacto1 = this.info.numero1;
+    this.contacto2 = this.info.numero2;
+    this.descripcion = this.info.acercaDe;
   }
 
+  mapa(){
+    this.router.navigate(['/mapa'])
+    
+  }
 
   volver(){
 

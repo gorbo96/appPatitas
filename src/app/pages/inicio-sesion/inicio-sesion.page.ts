@@ -171,8 +171,9 @@ export class InicioSesionPage implements OnInit {
 
   async onLoginGoogle() {
     try {
-		
-		const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+
+	const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+		this.router.navigate(['/menu-p'])
         
 		this.afstore.doc(`usuarios/${res.user.uid}`).set({
 			
@@ -195,7 +196,7 @@ export class InicioSesionPage implements OnInit {
 			uid: res.user.uid
 		})
 	
-		this.router.navigate(['/menu-p'])
+		
 	
 	
     } catch (error) {
