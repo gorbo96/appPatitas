@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 
 
+
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.page.html',
@@ -21,6 +22,7 @@ import firebase from 'firebase/app';
 
 
 export class InicioSesionPage implements OnInit {
+  checked: boolean;
 
   usuario: Usuario = new Usuario();
 
@@ -172,21 +174,14 @@ export class InicioSesionPage implements OnInit {
   }
 
 
-  	async onLoginGoogle() {
-		const res1 = await GoogleAuth.signIn() as any;
-		this.usuariolog = res1;
-		try { 
-		
-			const res = await this.afAuth.createUserWithEmailAndPassword(this.usuariolog.email , "patito123")
-		
-			/*this.afstore.doc(`usuarios/${res.user.uid}`).set({
-				nombre: this.usuariolog.name ,
-				correo: this.usuariolog.email,
-				clave: "patito123",
-				activo: true,
-				tipo: true,
-				uid: res.user.uid
-			})*/
+
+  async onLoginGoogle() {
+    try {
+  const res1 = await GoogleAuth.signIn() as any;
+	const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+		this.router.navigate(['/menu-p'])
+        
+		this.afstore.doc(`usuarios/${res.user.uid}`).set({
 			
 			this.user.setUser({
 				nombre:  this.usuariolog.name ,
