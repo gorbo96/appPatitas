@@ -71,9 +71,15 @@ const routes: Routes = [
   {
     path: 'medicamentos',
     loadChildren: () => import('./pages/medicamentos/medicamentos.module').then( m => m.MedicamentosPageModule)
-  },  {
+  },
+  {
     path: 'subministros',
     loadChildren: () => import('./pages/subministros/subministros.module').then( m => m.SubministrosPageModule)
+  },
+  {
+    path: 'contactos-totales',
+    loadChildren: () => import('./pages/contactos-totales/contactos-totales.module').then( m => m.ContactosTotalesPageModule)
+
   }
 
 

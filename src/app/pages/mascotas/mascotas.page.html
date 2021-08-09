@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <div style="float: left;">
       <ion-title>mascotas</ion-title>
     </div>
@@ -21,7 +21,7 @@
   <div *ngFor="let mascota of mascotas | async">
     <ion-item (click)="informacion(mascota)">
       <ion-label>
-        <div div style="float: left; width: 50%; margin-left: 5%; margin-right: 5%;">
+        <div div style="float: left; width: 50%; margin-right: 5%;">
           <ion-img style="width: 100px;margin: auto;"
           [src]="mascota.perfil?.url">
           </ion-img>
