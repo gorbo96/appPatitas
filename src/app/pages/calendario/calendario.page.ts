@@ -2,7 +2,7 @@ import { CalendarComponent } from 'ionic2-calendar';
 import { Component, ViewChild, OnInit, Inject, LOCALE_ID } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
-import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { ELocalNotificationTriggerUnit, LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { NavigationExtras, Router } from '@angular/router';
 import { NotificacionesService } from 'src/app/services/notificaciones.service';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -60,7 +60,7 @@ export class CalendarioPage implements OnInit {
       for (let index = 0; index < element.length; index++) {
         let eventCopy = {
           title: element[index].nombre,
-          startTime:  new Date(element[index].fecha),
+          startTime:  new Date(element[index].fechaProxima),
           endTime: new Date(element[index].fechaProxima),
           allDay: false,
           desc: element[index].utilidad,
@@ -73,6 +73,30 @@ export class CalendarioPage implements OnInit {
     this.localNotifications.schedule({
       text: fecha.toString(),
       trigger: {at: fecha},                 
+   });
+      }
+    });  
+  }
+  async cargarMedicamentos(){  
+    this.medicamentos=this.notificacionesService.getMedicamentos();
+    this.medicamentos.forEach((element) => {
+
+      for (let index = 0; index < element.length; index++) {
+        let eventCopy = {
+          title: element[index].nombre,
+          startTime:  new Date(element[index].fechaInicio),
+          endTime: new Date(element[index].fechaFin),
+          allDay: false,
+          frecuency:element[index].frecuency
+        }   
+        this.eventSource.push(eventCopy);
+        this.myCal.loadEvents();
+        this.resetEvent();
+        let fecha=new Date(element[index].fechaInicio);
+        let frecuencia=element[index].frecuency;
+    this.localNotifications.schedule({
+      text: "Notifiacion medicamento",
+      trigger: { count:frecuencia ,firstAt:fecha, every:ELocalNotificationTriggerUnit.HOUR}                 
    });
       }
     });  
