@@ -48,5 +48,11 @@ export class UserService {
   }
 
   
+  generarId(){
+    const user = this.afs.collection("usuarios");
+
+    return this.afs.createId();
+  }
+
 
 }
