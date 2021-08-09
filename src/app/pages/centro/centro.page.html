@@ -13,6 +13,91 @@
 
 <ion-content>
 
-  
+  <ion-grid>
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="6" class="ion-text-center">
+        
+        <ion-img style="width: 100px;margin: auto;"  src="../../../assets/imagenes/centroDef.png"></ion-img>
+
+      </ion-col>
+
+      <ion-col size="6" class="ion-text-center">
+        
+        <ion-card-title>Horario:</ion-card-title>
+        <ion-card-content>{{ dias }}</ion-card-content>
+        <ion-card-content>{{ horario }}</ion-card-content>
+        
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="6" class="ion-text-center">
+        <ion-card-title>Contactos :</ion-card-title>
+        <ion-card-content>{{ contacto1 }}</ion-card-content>
+        <ion-card-content>{{ contacto2 }}</ion-card-content>
+      </ion-col>
+
+      <ion-col size="6" class="ion-text-center">
+        
+
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        
+        <ion-button expand="block" (click)="mapa()">Como llegar</ion-button>
+
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        
+        <ion-card-title>Acerca de:</ion-card-title>
+        <ion-card-content>{{ descripcion }}</ion-card-content>
+
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-card-title>Galeria: </ion-card-title>
+        <br>
+        <ion-slides [options]="sliderOpts">
+          <ion-slide *ngFor="let imagen of imagenes |async">
+            <img [src]="imagen.imagen?.url" tappable>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-card-title>Comentarios: </ion-card-title>
+        <ion-button expand="block" (click)="addComentario()">Deja tu comentario</ion-button>
+        <div *ngIf="addComent">
+          <ion-item>
+            <ion-label>{{usuario.nombre}}: </ion-label>
+            <ion-textarea [(ngModel)]="comentario.comentario" rows="6" cols="20" placeholder="Deja tu comentario aqui..."></ion-textarea>
+          </ion-item>
+          <ion-button expand="block" (click)="guardarComentario()">Aceptar</ion-button>
+        </div>
+
+        <div *ngFor="let comentario of comentarios | async">
+          <ion-item>
+            <ion-card-title>{{comentario.nombreUsuario}}:</ion-card-title>
+            <ion-textarea>  {{comentario.comentario}}</ion-textarea>
+          </ion-item>
+        </div>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 
 </ion-content>
+

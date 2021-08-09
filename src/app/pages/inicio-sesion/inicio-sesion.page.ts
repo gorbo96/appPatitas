@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../domain/usuario';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+import  '@codetrix-studio/capacitor-google-auth';
+import { Plugins } from '@capacitor/core';
 
 import { AngularFirestore } from '@angular/fire/firestore'
 import { UserService } from '../../user.service';
@@ -170,9 +172,14 @@ export class InicioSesionPage implements OnInit {
 
 
   async onLoginGoogle() {
-    try {
+
+    try { 
+	//const res = await Plugins.GoogleAuth.signIn(null) as any;
 	const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-      
+	console.log(res);
+	
+
+		this.router.navigate(['/menu-p'])
         
 		this.afstore.doc(`usuarios/${res.user.uid}`).set({
 			
@@ -195,7 +202,7 @@ export class InicioSesionPage implements OnInit {
 			uid: res.user.uid
 		})
 	
-		this.router.navigate(['/menu-p'])
+		
 	
 	
     } catch (error) {
