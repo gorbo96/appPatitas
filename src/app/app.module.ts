@@ -19,7 +19,7 @@ import { CrearMascotasPageRoutingModule } from './pages/crear-mascotas/crear-mas
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { AgmCoreModule } from '@agm/core';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
-
+import { HttpClientModule } from "@angular/common/http";
 
 //IMPORTAMOS GEOLOCATION Y GEOCODER
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -36,6 +36,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
             NgCalendarModule,
             AngularFireModule.initializeApp(environment.firebaseConfig),
 		        AngularFirestoreModule,
+            HttpClientModule,
             CrearMascotasPageRoutingModule,
             AgmCoreModule.forRoot({
               apiKey: 'AIzaSyCT9wzsIIAkW95uHWVvCbBEP-xtjNbJPow'

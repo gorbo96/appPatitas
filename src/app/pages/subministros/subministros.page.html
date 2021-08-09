@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-fab-button (click)="volver()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+
+    <ion-title>API - REST</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <h1>Gatito Bonito desde una API</h1>
+    <div *ngFor="let gato of info | async">
+      <ion-item >
+        <ion-label>
+          <ion-img style="width: 100% ;margin: auto;"  src="{{ gato.url }}"></ion-img>
+          
+        </ion-label>
+      </ion-item>
+    </div>
+
+
+
+</ion-content>
