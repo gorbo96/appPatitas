@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../domain/usuario';
 import { AngularFireAuth } from '@angular/fire/auth';
 
-import  {GoogleAuth} from '@codetrix-studio/capacitor-google-auth';
+import  '@codetrix-studio/capacitor-google-auth';
 import { Plugins } from '@capacitor/core';
 
 import { AngularFirestore } from '@angular/fire/firestore'
@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 
 
-
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.page.html',
@@ -22,7 +21,6 @@ import firebase from 'firebase/app';
 
 
 export class InicioSesionPage implements OnInit {
-  checked: boolean;
 
   usuario: Usuario = new Usuario();
 
@@ -35,7 +33,6 @@ export class InicioSesionPage implements OnInit {
   showRegGulOps = false
 
 
-  
   constructor(public afAuth: AngularFireAuth,
 		public afstore: AngularFirestore,
 		public user: UserService,
@@ -174,39 +171,44 @@ export class InicioSesionPage implements OnInit {
   }
 
 
-
   async onLoginGoogle() {
-    try {
-  const res1 = await GoogleAuth.signIn() as any;
+
+    try { 
+	//const res = await Plugins.GoogleAuth.signIn(null) as any;
 	const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+	console.log(res);
+	
+
 		this.router.navigate(['/menu-p'])
         
 		this.afstore.doc(`usuarios/${res.user.uid}`).set({
 			
-			this.user.setUser({
-				nombre:  this.usuariolog.name ,
-				correo: this.usuariolog.email,
-				clave: "patito123",
-				activo: true,
-				tipo: true,
-				uid: res.user.uid
-			})
+			nombre: res.user.displayName ,
+			correo: res.user.email,
+			clave: null,
+			activo: true,
+			tipo: true,
+			uid: res.user.uid
+		})
+		console.log(res);
+
 		
-			this.router.navigate(['/menu-p'])
+		this.user.setUser({
+			nombre: res.user.displayName ,
+			correo: res.user.email,
+			clave: null,
+			activo: true,
+			tipo: true,
+			uid: res.user.uid
+		})
+	
 		
-		
-		} catch (error) {
-			console.log('AHHHHHHHHHHH->', error);
-
-
-
-
-
-
-
-
-		}
-	}
+	
+	
+    } catch (error) {
+      console.log('Error->', error);
+    }
+  }
 
   
 
