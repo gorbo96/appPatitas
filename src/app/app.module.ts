@@ -17,7 +17,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { CrearMascotasPageRoutingModule } from './pages/crear-mascotas/crear-mascotas-routing.module';
 
 import { CallNumber } from '@ionic-native/call-number/ngx';
-
+import { AgmCoreModule } from '@agm/core';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 
@@ -36,7 +36,12 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
             NgCalendarModule,
             AngularFireModule.initializeApp(environment.firebaseConfig),
 		        AngularFirestoreModule,
-            CrearMascotasPageRoutingModule],
+            CrearMascotasPageRoutingModule,
+            AgmCoreModule.forRoot({
+              apiKey: 'AIzaSyCT9wzsIIAkW95uHWVvCbBEP-xtjNbJPow'
+            }),
+          
+          ],
   providers: [Camera,
               //AÑADIMOS GEOLOCATION Y GEOCODER
               CallNumber,
