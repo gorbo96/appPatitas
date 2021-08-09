@@ -16,7 +16,7 @@ export class MenuPPage implements OnInit {
   ngOnInit() {
   }
 
-  nombre = this.user.getName()
+  nombre = this.user.getUID()
 
 
   logout(){

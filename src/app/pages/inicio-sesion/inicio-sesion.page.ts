@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../domain/usuario';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+import  {GoogleAuth} from '@codetrix-studio/capacitor-google-auth';
+import { Plugins } from '@capacitor/core';
 
 import { AngularFirestore } from '@angular/fire/firestore'
 import { UserService } from '../../user.service';
@@ -33,6 +35,7 @@ export class InicioSesionPage implements OnInit {
   showRegGulOps = false
 
 
+  
   constructor(public afAuth: AngularFireAuth,
 		public afstore: AngularFirestore,
 		public user: UserService,
@@ -171,40 +174,39 @@ export class InicioSesionPage implements OnInit {
   }
 
 
+
   async onLoginGoogle() {
     try {
-
+  const res1 = await GoogleAuth.signIn() as any;
 	const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
 		this.router.navigate(['/menu-p'])
         
 		this.afstore.doc(`usuarios/${res.user.uid}`).set({
 			
-			nombre: res.user.displayName ,
-			correo: res.user.email,
-			clave: null,
-			activo: true,
-			tipo: true,
-			uid: res.user.uid
-		})
-		console.log(res);
+			this.user.setUser({
+				nombre:  this.usuariolog.name ,
+				correo: this.usuariolog.email,
+				clave: "patito123",
+				activo: true,
+				tipo: true,
+				uid: res.user.uid
+			})
+		
+			this.router.navigate(['/menu-p'])
+		
+		
+		} catch (error) {
+			console.log('AHHHHHHHHHHH->', error);
 
-		
-		this.user.setUser({
-			nombre: res.user.displayName ,
-			correo: res.user.email,
-			clave: null,
-			activo: true,
-			tipo: true,
-			uid: res.user.uid
-		})
-	
-		
-	
-	
-    } catch (error) {
-      console.log('Error->', error);
-    }
-  }
+
+
+
+
+
+
+
+		}
+	}
 
   
 

@@ -1,6 +1,16 @@
 {
-	"appId": "io.ionic.starter",
+	"appId": "com.appPatita.capalogin",
 	"appName": "appPatitas",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"plugins": {
+		"GoogleAuth": {
+			"scopes": [
+				"profile",
+				"email"
+			],
+			"serverClientId": "864649497531-vs0mqcok9a380es9jm3eji478rlfk1db.apps.googleusercontent.com",
+			"forceCodeForRefreshToken": true
+		}
+	}
 }
