@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <div style="float: left;">
       <ion-title>datos-mascota</ion-title>
     </div>
@@ -100,7 +100,7 @@
             <ion-icon name="add"></ion-icon>
           </ion-fab-button>
         </div>
-        <h1>Profecionales</h1>
+        <h1>Contactos</h1>
       </div>
       <div div style="float: left; width: 100%;">
         <div *ngFor="let contacto of contactos | async">
@@ -147,8 +147,8 @@
           <ion-item-sliding>
             <ion-item>
               <ion-label>
-                <div div style="float: left; width: 15%; margin-left: 5%;">
-                  <ion-img style="width: 100px;margin: auto;"
+                <div div style="float: left; width: 15%;">
+                  <ion-img style="width: 80px;margin: auto;"
                   [src]="imgVacuna?.url">
                   </ion-img>
                 </div>
@@ -185,8 +185,8 @@
           <ion-item-sliding>
             <ion-item>
               <ion-label>
-                <div div style="float: left; width: 15%; margin-left: 5%;">
-                  <ion-img style="width: 100px;margin: auto;"
+                <div div style="float: left; width: 15%;">
+                  <ion-img style="width: 80px;margin: auto;"
                   [src]="imgMedicamento?.url">
                   </ion-img>
                 </div>

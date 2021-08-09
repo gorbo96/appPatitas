@@ -47,4 +47,8 @@ export class MenuPPage implements OnInit {
     this.router.navigate(['/calendario'])
   }
 
+  profecionales(){
+    this.router.navigate(['/contactos-totales'])
+  }
+
 }

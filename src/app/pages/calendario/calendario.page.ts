@@ -6,6 +6,7 @@ import { ELocalNotificationTriggerUnit, LocalNotifications } from '@ionic-native
 import { NavigationExtras, Router } from '@angular/router';
 import { NotificacionesService } from 'src/app/services/notificaciones.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { UserService } from 'src/app/user.service';
 
 
 
@@ -40,7 +41,8 @@ export class CalendarioPage implements OnInit {
   constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string,private localNotifications: LocalNotifications,
               private router: Router,
               public notificacionesService:NotificacionesService,
-              public afstore: AngularFirestore
+              public afstore: AngularFirestore,
+              public user: UserService
               ) { 
     
   }
@@ -56,7 +58,7 @@ export class CalendarioPage implements OnInit {
   }
 
   async cargarEventos(){  
-    this.vacunas=this.notificacionesService.getVacunas();
+    this.vacunas=this.notificacionesService.getVacunas(this.user.getUser().uid);
     this.vacunas.forEach((element) => {
 
       for (let index = 0; index < element.length; index++) {
@@ -81,7 +83,7 @@ export class CalendarioPage implements OnInit {
     });  
   }
   async cargarMedicamentos(){  
-    this.medicamentos=this.notificacionesService.getMedicamentos();
+    this.medicamentos=this.notificacionesService.getMedicamentos(this.user.getUser().uid);
     this.medicamentos.forEach((element) => {
 
       for (let index = 0; index < element.length; index++) {

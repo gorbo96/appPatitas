@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
 
     <ion-fab-button (click)="logout()">
       <ion-icon name="arrow-back"></ion-icon>
@@ -30,7 +30,7 @@
 
     <ion-row class="ion-text-center ion-align-items-center">
       <ion-col size="6" class="ion-text-center">
-        <ion-img style="width: 100px;margin: auto;"  src="../../../assets/menu/profecionales.png"></ion-img>
+        <ion-img style="width: 100px;margin: auto;"   (click)="profecionales()" src="../../../assets/menu/profecionales.png"></ion-img>
         <ion-card-title>Profesionales</ion-card-title>
       </ion-col>
 

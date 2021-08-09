@@ -11,12 +11,14 @@ export class NotificacionesService {
 
   constructor(public afs: AngularFirestore) { }
 
-  getMedicamentos():Observable<any[]>{
+  getMedicamentos(uid:any):Observable<any[]>{
     return this.afs.collection("medicamentos",
-            ref=> ref.where("activo","==",true)).valueChanges();
+            ref=> ref.where("activo","==",true).where("uidUsuario","==", uid)).valueChanges();
   }
-  getVacunas():Observable<any[]>{
+
+  getVacunas(uid:any):Observable<any[]>{
     return this.afs.collection("vacunas",
-            ref=> ref.where("activo","==",true)).valueChanges();
+            ref=> ref.where("activo","==",true).where("uidUsuario","==", uid)).valueChanges();
   }
+
 }

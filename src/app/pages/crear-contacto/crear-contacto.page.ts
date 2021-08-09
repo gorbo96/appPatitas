@@ -3,6 +3,7 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Contacto } from 'src/app/domain/contacto';
 import { Mascota } from 'src/app/domain/mascota';
 import { ContactosService } from 'src/app/services/contactos.service';
+import { UserService } from 'src/app/user.service';
 
 
 @Component({
@@ -16,7 +17,10 @@ export class CrearContactoPage implements OnInit {
 
   mascota:Mascota = new Mascota();
 
-  constructor(private route: ActivatedRoute,private router: Router, private contactoService: ContactosService) {
+  constructor(private route: ActivatedRoute,
+              private router: Router, 
+              private contactoService: ContactosService,
+              public user: UserService) {
     route.queryParams.subscribe(params=>{
       console.log(params)
       this.mascota = params.mascota;
@@ -42,6 +46,7 @@ export class CrearContactoPage implements OnInit {
 
   guardar(){
     this.contacto.uidMascota=this.mascota.uid;
+    this.contacto.uidUsuario=this.user.getUser().uid;
     this.contactoService.save(this.contacto);
     let params: NavigationExtras={
       queryParams:{

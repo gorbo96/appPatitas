@@ -25,5 +25,10 @@ export class ContactosService {
     return this.afs.collection("contactos",
             ref=> ref.where("activo","==",true).where("uidMascota","==",uid)).valueChanges();
   }
+
+  getContactosUsuario(uid:any){
+    return this.afs.collection("contactos",
+            ref=> ref.where("activo","==",true).where("uidUsuario","==",uid)).valueChanges();
+  }
   
 }

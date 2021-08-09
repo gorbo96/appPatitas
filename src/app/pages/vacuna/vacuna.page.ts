@@ -3,6 +3,7 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Mascota } from 'src/app/domain/mascota';
 import { Vacunacion } from 'src/app/domain/vacunacion';
 import { VacunasService } from 'src/app/services/vacunas.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-vacuna',
@@ -15,7 +16,10 @@ export class VacunaPage implements OnInit {
 
   mascota:Mascota = new Mascota();
 
-  constructor(private route: ActivatedRoute,private router: Router, private vacunaService: VacunasService) { 
+  constructor(private route: ActivatedRoute,
+              private router: Router, 
+              private vacunaService: VacunasService,
+              public user: UserService) { 
     route.queryParams.subscribe(params=>{
       console.log(params)
       this.mascota = params.mascota;
@@ -30,7 +34,7 @@ export class VacunaPage implements OnInit {
 
   guardar(){
     this.vacunacion.uidMascota=this.mascota.uid;
-
+    this.vacunacion.uidUsuario=this.user.getUser().uid;
     this.vacunaService.save(this.vacunacion);
 
     let params: NavigationExtras={
