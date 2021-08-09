@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^3.0.0-beta.0",
     "@angular/common": "~12.1.1",
     "@angular/compiler": "~12.1.1",
     "@angular/core": "~12.1.1",
@@ -35,6 +36,7 @@
     "@ionic-native/local-notifications": "^5.35.0",
     "@ionic-native/native-geocoder": "^5.35.0",
     "@ionic/angular": "^5.5.2",
+    "@types/googlemaps": "^3.39.12",
     "call-number": "^1.0.1",
     "cordova-plugin-badge": "^0.8.8",
     "cordova-plugin-calendar": "^5.1.5",

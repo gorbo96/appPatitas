@@ -174,13 +174,13 @@ export class InicioSesionPage implements OnInit {
   async onLoginGoogle() {
 
     try { 
-	//const res = await Plugins.GoogleAuth.signIn(null) as any;
-	const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-	console.log(res);
+	const res = await Plugins.GoogleAuth.signIn(null) as any;
+	//const res = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+	//console.log(res);
 	
 
 		this.router.navigate(['/menu-p'])
-        
+        /*
 		this.afstore.doc(`usuarios/${res.user.uid}`).set({
 			
 			nombre: res.user.displayName ,
@@ -191,15 +191,15 @@ export class InicioSesionPage implements OnInit {
 			uid: res.user.uid
 		})
 		console.log(res);
-
+		*/
 		
 		this.user.setUser({
-			nombre: res.user.displayName ,
-			correo: res.user.email,
+			nombre: res.displayName ,
+			correo: res.email,
 			clave: null,
 			activo: true,
 			tipo: true,
-			uid: res.user.uid
+			uid: null
 		})
 	
 		
