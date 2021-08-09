@@ -17,7 +17,10 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { CrearMascotasPageRoutingModule } from './pages/crear-mascotas/crear-mascotas-routing.module';
 
 import { CallNumber } from '@ionic-native/call-number/ngx';
+
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +32,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
             AngularFireModule.initializeApp(environment.firebaseConfig),
 		        AngularFirestoreModule,
             CrearMascotasPageRoutingModule],
+
   providers: [CallNumber, Camera,LocalNotifications,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
