@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 
 
+
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.page.html',
@@ -19,6 +20,7 @@ import firebase from 'firebase/app';
 
 
 export class InicioSesionPage implements OnInit {
+  checked: boolean;
 
   usuario: Usuario = new Usuario();
 
