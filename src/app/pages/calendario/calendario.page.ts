@@ -3,6 +3,11 @@ import { Component, ViewChild, OnInit, Inject, LOCALE_ID } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { NavigationExtras, Router } from '@angular/router';
+import { NotificacionesService } from 'src/app/services/notificaciones.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+
+
 
 @Component({
   selector: 'app-calendario',
@@ -23,7 +28,7 @@ export class CalendarioPage implements OnInit {
   minDate = new Date().toISOString();
  
   eventSource = [];
-  viewTitle;
+  viewTitle: any;
  
   calendar = {
     mode: 'month',
@@ -32,13 +37,45 @@ export class CalendarioPage implements OnInit {
  
   @ViewChild(CalendarComponent) myCal: CalendarComponent;
  
-  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string,private localNotifications: LocalNotifications) { 
-    ;
+  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string,private localNotifications: LocalNotifications,
+              private router: Router,
+              public notificacionesService:NotificacionesService,
+              public afstore: AngularFirestore
+              ) { 
+    
   }
- 
+  
+  vacunas:any;
+  medicamentos:any;
+
   ngOnInit() {
     this.resetEvent();
-    this.localNotifications.requestPermission()    
+    this.localNotifications.requestPermission();
+  }
+
+  async cargarEventos(){  
+    this.vacunas=this.notificacionesService.getVacunas();
+    this.vacunas.forEach((element) => {
+
+      for (let index = 0; index < element.length; index++) {
+        let eventCopy = {
+          title: element[index].nombre,
+          startTime:  new Date(element[index].fecha),
+          endTime: new Date(element[index].fechaProxima),
+          allDay: false,
+          desc: element[index].utilidad,
+          frecuency:1
+        }   
+        this.eventSource.push(eventCopy);
+        this.myCal.loadEvents();
+        this.resetEvent();
+        let fecha=new Date(element[index].fechaProxima);
+    this.localNotifications.schedule({
+      text: fecha.toString(),
+      trigger: {at: fecha},                 
+   });
+      }
+    });  
   }
 
   schedulebasic(){    
@@ -97,7 +134,7 @@ export class CalendarioPage implements OnInit {
   }
    
   
-  changeMode(mode) {
+  changeMode(mode: string) {
     this.calendar.mode = mode;
   }
    
@@ -107,12 +144,12 @@ export class CalendarioPage implements OnInit {
   }
    
   
-  onViewTitleChanged(title) {
+  onViewTitleChanged(title: any) {
     this.viewTitle = title;
   }
    
   
-  async onEventSelected(event) {
+  async onEventSelected(event: { startTime: string | number | Date; endTime: string | number | Date; frecuency: any; title: any; desc: any; }) {
     
     let start = formatDate(event.startTime, 'medium', this.locale);
     let end = formatDate(event.endTime, 'medium', this.locale);
@@ -128,7 +165,7 @@ export class CalendarioPage implements OnInit {
   }
    
   
-  onTimeSelected(ev) {
+  onTimeSelected(ev: { selectedTime: string | number | Date; }) {
     let selected = new Date(ev.selectedTime);
     this.event.startTime = selected.toISOString();
     selected.setHours(selected.getHours() + 1);
