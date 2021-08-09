@@ -1,6 +1,7 @@
 export class Contacto{
     uid:string;
     uidMascota:string;
+    uidUsuario:string;
     nombreEmpresa:string;
     nombrePersona:string;
     ocupacion:string;

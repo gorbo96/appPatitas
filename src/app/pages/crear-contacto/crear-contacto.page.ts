@@ -43,7 +43,6 @@ export class CrearContactoPage implements OnInit {
   guardar(){
     this.contacto.uidMascota=this.mascota.uid;
     this.contactoService.save(this.contacto);
-
     let params: NavigationExtras={
       queryParams:{
         mascota:this.mascota

@@ -51,6 +51,8 @@ export class CalendarioPage implements OnInit {
   ngOnInit() {
     this.resetEvent();
     this.localNotifications.requestPermission();
+    this.cargarEventos();
+    this.cargarMedicamentos();
   }
 
   async cargarEventos(){  
@@ -70,8 +72,9 @@ export class CalendarioPage implements OnInit {
         this.myCal.loadEvents();
         this.resetEvent();
         let fecha=new Date(element[index].fechaProxima);
+        let nombreVacuna=element[index].nombre;
     this.localNotifications.schedule({
-      text: fecha.toString(),
+      text: "Tiene una vacuna pendiente: "+nombreVacuna.toString(),
       trigger: {at: fecha},                 
    });
       }
@@ -94,8 +97,9 @@ export class CalendarioPage implements OnInit {
         this.resetEvent();
         let fecha=new Date(element[index].fechaInicio);
         let frecuencia=element[index].frecuency;
+        let nombreMedicamento=element[index].nombre;
     this.localNotifications.schedule({
-      text: "Notifiacion medicamento",
+      text: "Tiene una vacuna pendiente: "+nombreMedicamento.toString(),
       trigger: { count:frecuencia ,firstAt:fecha, every:ELocalNotificationTriggerUnit.HOUR}                 
    });
       }
@@ -195,4 +199,9 @@ export class CalendarioPage implements OnInit {
     selected.setHours(selected.getHours() + 1);
     this.event.endTime = (selected.toISOString());
   }
+
+  regresar(){
+    this.router.navigate(["/menu-p"]);
+  }
+
 }

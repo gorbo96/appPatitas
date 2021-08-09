@@ -1,8 +1,15 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>
-      Calendario Medicamentos
-    </ion-title>
+    <div style="float: left;">
+      <ion-title>
+        Calendario Medicamentos
+      </ion-title>
+    </div>
+    <div style="float: right;">
+      <ion-fab-button (click)="regresar()" >
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-fab-button>
+    </div>
     <ion-buttons slot="end">
       <ion-button (click)="today()">Hoy</ion-button>
     </ion-buttons>
@@ -10,8 +17,6 @@
 </ion-header>
  
 <ion-content>
-  <ion-button fill="outline" expand="block" (click)="cargarEventos()">Cargar Eventos vac</ion-button>
-  <ion-button fill="outline" expand="block" (click)="cargarMedicamentos()">Cargar Eventos med</ion-button>
   <calendar 
   [eventSource]="eventSource" 
   [calendarMode]="calendar.mode" 

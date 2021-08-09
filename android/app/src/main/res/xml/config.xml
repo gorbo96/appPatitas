@@ -26,9 +26,5 @@
     <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification"/>
   </feature>
 
-  <feature name="NativeGeocoder">
-    <param name="android-package" value="cordova.plugin.nativegeocoder.NativeGeocoder"/>
-  </feature>
-
   
 </widget>

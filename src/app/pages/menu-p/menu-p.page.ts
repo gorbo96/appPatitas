@@ -43,4 +43,8 @@ export class MenuPPage implements OnInit {
     this.router.navigate(['/mascotas'])
   }
 
+  calendario(){
+    this.router.navigate(['/calendario'])
+  }
+
 }
